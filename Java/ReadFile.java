@@ -38,5 +38,16 @@ class ReadFile{
 		for(String s:chunks) num.add(Integer.valueOf(s));
 	
 		return num;
-	}
+    }
+    
+    int[] tokenizeListArr(String values){
+        String[] chunks = values.split(" ");
+        int[] out = new int[chunks.length];
+        int i =0;
+        for(String s:chunks){
+            out[i++] = Integer.parseInt(s);
+        }
+    
+        return out;
+    }
 }
