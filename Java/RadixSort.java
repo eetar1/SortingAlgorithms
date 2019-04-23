@@ -2,27 +2,42 @@ import java.util.ArrayList;
 
 class RadixSort{
 
+    static ArrayList<Integer> sort(ArrayList<Integer> values){
+        Que[] radix = new Que[10];
+        for(int x=0;x<10;x++){
+            radix[x] = new Que();
+        }
 
-    static int[] sort(int[] values){
-
-        int[][] radix = new int[10][values.length];
         int rad = 10;
         int itr = 1;
-        for(int i : values){
-            int idx = i % rad;
-            radix[idx/itr][radix[idx].length] = i;
+        for(int y=0;y<11;y++){  
+
+            for(Integer val : values){
+                radix[(val % rad)/itr].push(val.intValue());
+                
+            }
+            values.clear();
+            for(Que q: radix){
+                while(q.size > 0){
+                    values.add(q.pop());
+                }
+            }
+            itr *= 10;
+            rad *=10;
         }
-        
-
-
         return values;
     }
+
 
     public static void main(String args[]){
         ReadFile fr = new ReadFile();
 		String file = fr.readTestFile(args[0]);
-        int[] values = fr.tokenizeListArr(file);
+        ArrayList<Integer> values = fr.tokenizeList(file);
         
-        values = sort(values);
+        ArrayList<Integer> output = sort(values);
+
+        for(Integer i : output){
+            System.out.println(i);
+        }
     }
 }
