@@ -17,6 +17,8 @@ public class BubbleSort implements Algorithm {
                     values.set(i, values.get(i + 1));
                     values.set(i + 1, tmp);
                     swap = true;
+                } else {
+                    swap = false;
                 }
             }
 
