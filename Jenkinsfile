@@ -6,7 +6,8 @@ pipeline {
         echo 'Build'
         sh './gradlew build'
         sh '''pwd
-ls'''
+ls
+scp AlgorithmChart.jpeg /var/nginx '''
       }
     }
     stage('Test') {
