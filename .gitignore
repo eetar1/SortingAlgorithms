@@ -348,3 +348,5 @@ gradle-app.setting
 
 #Java
 *.class
+
+*.jpeg
