@@ -1,6 +1,6 @@
-package Algorithms;
+package Application.Algorithms;
 
-import HelperClasses.ReadFile;
+import Application.HelperClasses.ReadFile;
 
 import java.util.ArrayList;
 

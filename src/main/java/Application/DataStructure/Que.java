@@ -1,4 +1,4 @@
-package DataStructure;
+package Application.DataStructure;
 
 public class Que{
     public IntNode head;

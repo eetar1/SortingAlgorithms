@@ -1,7 +1,7 @@
-package Algorithms;
+package Application.Algorithms;
 
-import DataStructure.Que;
-import HelperClasses.ReadFile;
+import Application.DataStructure.Que;
+import Application.HelperClasses.ReadFile;
 
 import java.util.ArrayList;
 

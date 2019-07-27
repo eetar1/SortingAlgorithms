@@ -1,11 +1,8 @@
-package Algorithms;
+package Application.Algorithms;
 
-import HelperClasses.ReadFile;
+import Application.HelperClasses.ReadFile;
 
-import java.nio.file.*;
 import java.util.ArrayList;
-import java.lang.System.*;
-import java.io.*;
 
 public class MergeSort implements Algorithm {
 

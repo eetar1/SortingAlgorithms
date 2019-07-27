@@ -1,7 +1,7 @@
-package Algorithms;
+package Application.Algorithms;
 
 
-import HelperClasses.ReadFile;
+import Application.HelperClasses.ReadFile;
 
 import java.util.ArrayList;
 
@@ -11,14 +11,13 @@ public class BubbleSort implements Algorithm {
         boolean swap = false;
 
         do {
+            swap = false;
             for (int i = 0; i < values.size() - 1; i++) {
                 if (values.get(i) > values.get(i + 1)) {
                     int tmp = values.get(i);
                     values.set(i, values.get(i + 1));
                     values.set(i + 1, tmp);
                     swap = true;
-                } else {
-                    swap = false;
                 }
             }
 

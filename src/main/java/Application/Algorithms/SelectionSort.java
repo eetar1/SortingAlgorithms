@@ -1,7 +1,7 @@
-package Algorithms;
+package Application.Algorithms;
 
-import DataStructure.IntNode;
-import HelperClasses.ReadFile;
+import Application.DataStructure.IntNode;
+import Application.HelperClasses.ReadFile;
 
 import java.util.ArrayList;
 

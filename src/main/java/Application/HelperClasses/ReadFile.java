@@ -1,7 +1,6 @@
-package HelperClasses;
+package Application.HelperClasses;
 
 import java.nio.file.*;
-import java.lang.System.*;
 import java.io.*;
 import java.util.ArrayList;
 

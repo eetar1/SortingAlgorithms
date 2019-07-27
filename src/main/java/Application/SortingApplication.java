@@ -1,4 +1,6 @@
-import Algorithms.*;
+package Application;
+
+import Application.Algorithms.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
