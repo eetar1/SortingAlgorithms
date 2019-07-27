@@ -5,6 +5,7 @@ pipeline {
       steps {
         echo 'Build'
         sh './gradlew build'
+        sh 'pws'
       }
     }
     stage('Test') {
