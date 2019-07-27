@@ -1,7 +1,9 @@
-class Que{
-    IntNode head;
-    IntNode tail;
-    int size = 0;
+package DataStructure;
+
+public class Que{
+    public IntNode head;
+    public IntNode tail;
+    public int size = 0;
     public void push(int val){
 
         if(head == null){

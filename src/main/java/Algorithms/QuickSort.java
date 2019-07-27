@@ -1,17 +1,21 @@
+package Algorithms;
+
+import HelperClasses.ReadFile;
+
 import java.util.ArrayList;
 import java.lang.Math;
 
-class QuickSort{
+public class QuickSort implements Algorithm{
 
 
-    static ArrayList<Integer> sort(ArrayList<Integer> values){
+    public ArrayList<Integer> sort(ArrayList<Integer> values){
 
         if(values.size() < 2){
             return values;
         }
         else {
-            ArrayList<Integer> hi = new ArrayList<Integer>(values.size());
-            ArrayList<Integer> lo = new ArrayList<Integer>(values.size());
+            ArrayList<Integer> hi = new ArrayList<>(values.size());
+            ArrayList<Integer> lo = new ArrayList<>(values.size());
     
             int pivot = getRandomPivot(values.size());
             Integer listPivot = values.get(pivot);
@@ -45,7 +49,7 @@ class QuickSort{
 
         ArrayList<Integer> values = RF.tokenizeList(file);
 
-        values  = sort(values);
+        values  = new QuickSort().sort(values);
         for(Integer i : values){
             System.out.println(i);
         }

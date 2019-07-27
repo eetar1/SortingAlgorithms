@@ -1,16 +1,22 @@
+package Algorithms;
+
+import HelperClasses.ReadFile;
+
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.lang.System.*;
 import java.io.*;
 
-public class MergeSort{
+public class MergeSort implements Algorithm {
 
-	ArrayList<Integer> sort(ArrayList<Integer> values){
+	public MergeSort(){}
+
+	public ArrayList<Integer> sort(ArrayList<Integer> values){
 		if(values.size() > 1){
 
 			//Split the array
-			ArrayList<Integer> left = new ArrayList<Integer>(values.subList(0, values.size()/2));
-			ArrayList<Integer> right = new ArrayList<Integer>(values.subList((values.size()/2), values.size()));
+			ArrayList<Integer> left = new ArrayList<>(values.subList(0, values.size() / 2));
+			ArrayList<Integer> right = new ArrayList<>(values.subList((values.size() / 2), values.size()));
 			left = sort(left);
 			right = sort(right);
 
@@ -24,7 +30,7 @@ public class MergeSort{
 	}
 
 	ArrayList<Integer> merge(ArrayList<Integer> left,ArrayList<Integer> right){
-			ArrayList<Integer> out = new ArrayList<Integer>();
+			ArrayList<Integer> out = new ArrayList<>();
 		
 		while(left.size() > 0 || right.size() > 0){
 		
@@ -36,10 +42,10 @@ public class MergeSort{
 				out.addAll(left);
 				return out;
 			}
-			else if(left.size() > 0 && left.get(0) > right.get(0)){
+			else if(left.get(0) < right.get(0)){
 				out.add(left.remove(0));
 			}
-			else if (right.size() > 0 && right.get(0) > left.get(0)){
+			else if (right.get(0) < left.get(0)){
 				out.add(right.remove(0));
 			}
 		}

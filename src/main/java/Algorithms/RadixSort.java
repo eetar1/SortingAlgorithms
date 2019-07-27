@@ -1,8 +1,13 @@
+package Algorithms;
+
+import DataStructure.Que;
+import HelperClasses.ReadFile;
+
 import java.util.ArrayList;
 
-class RadixSort{
+public class RadixSort implements Algorithm {
 
-    static ArrayList<Integer> sort(ArrayList<Integer> values){
+    public ArrayList<Integer> sort(ArrayList<Integer> values){
         Que[] radix = new Que[10];
         for(int x=0;x<10;x++){
             radix[x] = new Que();
@@ -13,7 +18,7 @@ class RadixSort{
         for(int y=0;y<11;y++){  
 
             for(Integer val : values){
-                radix[(val % rad)/itr].push(val.intValue());
+                radix[(val % rad)/itr].push(val);
                 
             }
             values.clear();
@@ -34,7 +39,7 @@ class RadixSort{
 		String file = fr.readTestFile(args[0]);
         ArrayList<Integer> values = fr.tokenizeList(file);
         
-        ArrayList<Integer> output = sort(values);
+        ArrayList<Integer> output = new RadixSort().sort(values);
 
         for(Integer i : output){
             System.out.println(i);

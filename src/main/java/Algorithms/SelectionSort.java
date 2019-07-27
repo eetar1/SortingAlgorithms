@@ -1,25 +1,30 @@
+package Algorithms;
+
+import DataStructure.IntNode;
+import HelperClasses.ReadFile;
+
 import java.util.ArrayList;
 
-class SelectionSort{
+public class SelectionSort implements Algorithm{
 
-    static IntNode head = null;
+    private static IntNode head = null;
 
-    static ArrayList<Integer> sort(ArrayList<Integer> values){
+    public ArrayList<Integer> sort(ArrayList<Integer> values){
 
         for(Integer i : values){
             if(head == null){
-                IntNode tmp = new IntNode(i.intValue());
+                IntNode tmp = new IntNode(i);
                 head = tmp;
             }
             else if (i < head.value){
-                IntNode tmp = new IntNode(i.intValue());
+                IntNode tmp = new IntNode(i);
                 tmp.right = head;
                 head = tmp;
             }
             else{
 
                 IntNode trav = head;
-                IntNode tmp = new IntNode(i.intValue());
+                IntNode tmp = new IntNode(i);
 
                 while(trav.right != null && i > trav.right.value){
                     trav = trav.right;
@@ -45,7 +50,7 @@ class SelectionSort{
 		String file = fr.readTestFile(args[0]);
         ArrayList<Integer> values = fr.tokenizeList(file);
         
-        ArrayList<Integer> output = sort(values);
+        ArrayList<Integer> output =  new SelectionSort().sort(values);
 
         for(Integer i : output){
             System.out.println(i);
