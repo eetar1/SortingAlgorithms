@@ -1,13 +1,15 @@
 pipeline {
   agent any
+  environment {
+    CI = 'true'
+  }
   stages {
     stage('Build') {
       steps {
-        echo 'Build'
-        sh './gradlew build'
-        sh '''pwd
-ls
-scp AlgorithmChart.jpeg /var/nginx '''
+        echo "Running Sorts:"
+        sh './$WORKSPACE/gradlew build'
+        sh 'java -jar SortingAlgorithm-1.0-SNAPSHOT.jar 100'
+        sh 'mv $WORKSPACE/build/libs/AlgorithmChart.jpeg $WORKSPACE/html'
       }
     }
     stage('Test') {
@@ -15,9 +17,13 @@ scp AlgorithmChart.jpeg /var/nginx '''
         echo 'Test'
       }
     }
-    stage('Deploy') {
+    stage('Master-Deploy') {
+      when {
+        expression { env.BRANCH_NAME == 'master' }
+      }
+
       steps {
-        echo 'Deploy'
+        sh 'sshpass -p $ETHANSCORNERPASSWORD scp -r -oStrictHostKeyChecking=no $WORKSPACE/html/ ethanscorner@$SERVER:$ETHANSCORNERLOCATION'
       }
     }
   }
