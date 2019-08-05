@@ -41,7 +41,9 @@ public class SortingApplication {
             dataset.addValue(times[i] / 1000000, (sorts[i]), "");
         }
         JFreeChart barChart = ChartFactory.createBarChart("Sorting Algorithm " + numbers + " Elements", "Algorithm", "Milli Seconds", dataset);
-        File BarChart = new File("Charts/AlgorithmChart"+args+".jpeg");
+        File ChartDir = new File("Charts");
+        ChartDir.mkdirs();
+        File BarChart = new File(ChartDir,"AlgorithmChart"+args+".jpeg");
         BarChart.createNewFile();
         ChartUtils.saveChartAsJPEG(BarChart.getAbsoluteFile(), barChart, 640, 480);
 
