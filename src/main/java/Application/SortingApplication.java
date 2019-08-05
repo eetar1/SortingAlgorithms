@@ -43,7 +43,7 @@ public class SortingApplication {
         JFreeChart barChart = ChartFactory.createBarChart("Sorting Algorithm " + numbers + " Elements", "Algorithm", "Milli Seconds", dataset);
         File BarChart = new File("Charts/AlgorithmChart"+args+".jpeg");
         BarChart.createNewFile();
-        ChartUtils.saveChartAsJPEG(BarChart, barChart, 640, 480);
+        ChartUtils.saveChartAsJPEG(BarChart.getAbsoluteFile(), barChart, 640, 480);
 
     }
 
