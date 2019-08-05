@@ -17,7 +17,12 @@ public class SortingApplication {
     private static String[] sorts = {"MergeSort", "QuickSort", "RadixSort", "SelectionSort", "BubbleSort"};
 
     public static void main(String args[]) throws Exception {
+        if(args.length < 1){
+            throw new Exception("must provide cmd parameter length");
+        }
+
         numbers = Integer.parseInt(args[0]);
+
         double[] times = new double[sorts.length];
 
         Algorithm[] algorithm = {new MergeSort(), new QuickSort(), new RadixSort(), new SelectionSort(), new BubbleSort()};
@@ -27,16 +32,17 @@ public class SortingApplication {
             times[i] = TimeFunction(algorithm[i]);
         }
 
-        graphChart(times);
+        graphChart(times,numbers);
     }
 
-    private static void graphChart(double[] times) throws IOException {
+    private static void graphChart(double[] times,int args) throws IOException {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (int i = 0; i < sorts.length; i++) {
             dataset.addValue(times[i] / 1000000, (sorts[i]), "");
         }
         JFreeChart barChart = ChartFactory.createBarChart("Sorting Algorithm " + numbers + " Elements", "Algorithm", "Milli Seconds", dataset);
-        File BarChart = new File("AlgorithmChart.jpeg");
+        File BarChart = new File("Charts/AlgorithmChart"+args+".jpeg");
+        BarChart.createNewFile();
         ChartUtils.saveChartAsJPEG(BarChart, barChart, 640, 480);
 
     }
